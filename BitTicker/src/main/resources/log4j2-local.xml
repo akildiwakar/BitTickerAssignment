@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE log4j:configuration>-->
+<Configuration status="INFO">
+	<Properties>
+		<Property name="pattern" value="%d [%t] %-5p %c{2} %X - %m%n" />
+	</Properties>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${pattern}" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.bitoasis.ticker" level="ALL" additivity="false">
+			<AppenderRef ref="console" level="DEBUG" />
+		</Logger>
+		<Logger name="org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration" level="ALL" additivity="false">
+			<AppenderRef ref="console" level="ERROR" />
+		</Logger>
+		<Root level="INFO">
+			<Appender-ref ref="console" />
+		</Root>
+	</Loggers>
+</Configuration>
